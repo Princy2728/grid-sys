@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  gridwise-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gridwise-ai-controller
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - DATABASE_URL=sqlite:///./gridwise.db
+    restart: unless-stopped
